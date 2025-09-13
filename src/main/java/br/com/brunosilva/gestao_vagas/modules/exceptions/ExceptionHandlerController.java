@@ -1,4 +1,4 @@
-package br.com.brunosilva.gestao_vagas.modules.errors;
+package br.com.brunosilva.gestao_vagas.modules.exceptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import br.com.brunosilva.gestao_vagas.modules.errors.dtos.ErrorMessageDTO;
+import br.com.brunosilva.gestao_vagas.modules.exceptions.dtos.ErrorMessageDTO;
 
 @ControllerAdvice
 public class ExceptionHandlerController {

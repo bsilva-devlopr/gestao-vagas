@@ -1,4 +1,4 @@
-package br.com.brunosilva.gestao_vagas.modules.errors;
+package br.com.brunosilva.gestao_vagas.modules.exceptions;
 
 public class UserFoundException extends RuntimeException {
 

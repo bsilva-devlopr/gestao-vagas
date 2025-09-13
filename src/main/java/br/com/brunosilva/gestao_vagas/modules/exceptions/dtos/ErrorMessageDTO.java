@@ -1,4 +1,4 @@
-package br.com.brunosilva.gestao_vagas.modules.errors.dtos;
+package br.com.brunosilva.gestao_vagas.modules.exceptions.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
