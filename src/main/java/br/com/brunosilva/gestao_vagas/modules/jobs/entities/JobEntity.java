@@ -9,28 +9,28 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity(name = "job")
 @Data
+@Entity(name = "job")
 public class JobEntity {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
-  private UUID uuid;
-  private String description;
-  private String benefits;
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
-  @NotBlank(message = "Esse campo é obrigatório")
-  private String level;
+    private String description;
+    private String benefits;
 
-  // Chave estrangeira para criar o vinculo com a tabela da company
-  @ManyToOne() // Muitos jobs para uma company
-  @JoinColumn(name = "company_id", insertable = false, updatable = false)
-  private CompanyEntity companyEntity;
+    @NotBlank(message = "Esse campo é obrigatório")
+    private String level;
 
-  // (insertable = false, updatable = false) O ORM vai entender que é para usar somente o companyId
-  @Column(name = "company_id", nullable = false)
-  private UUID companyId;
+    @ManyToOne
+    @JoinColumn(name = "company_id", insertable = false, updatable = false)
+    private CompanyEntity companyEntity;
 
-  @CreationTimestamp
-  private LocalDateTime createdAt;
+    // chave estrangeira que vincula a company com o job
+    @Column(name = "company_id", nullable = false)
+    private UUID companyId;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 }

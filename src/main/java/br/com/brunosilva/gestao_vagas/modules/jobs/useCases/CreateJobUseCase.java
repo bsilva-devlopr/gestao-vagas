@@ -14,4 +14,5 @@ public class CreateJobUseCase {
     public JobEntity execute(JobEntity jobEntity) {
         return this.jobRepository.save(jobEntity);
     }
+
 }

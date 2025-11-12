@@ -1,25 +1,32 @@
 package br.com.brunosilva.gestao_vagas.modules.company.useCases;
 
+import br.com.brunosilva.gestao_vagas.exceptions.UserFoundException;
 import br.com.brunosilva.gestao_vagas.modules.company.entities.CompanyEntity;
 import br.com.brunosilva.gestao_vagas.modules.company.repositories.CompanyRepository;
-import br.com.brunosilva.gestao_vagas.modules.exceptions.UserFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CreateCompanyUseCase {
 
-  @Autowired
-  private CompanyRepository companyRepository;
+    @Autowired
+    private CompanyRepository companyRepository;
 
-  public CompanyEntity execute(CompanyEntity companyEntity) {
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-    this.companyRepository
-            .findByUsernameOrEmail(companyEntity.getUsername(), companyEntity.getEmail())
-            .ifPresent((user) -> {
-              throw new UserFoundException();
-            });
+    public CompanyEntity execute(CompanyEntity companyEntity) {
 
-    return this.companyRepository.save(companyEntity);
-  }
+        this.companyRepository
+                .findByUsernameOrEmail(companyEntity.getUsername(), companyEntity.getEmail())
+                .ifPresent((user) -> {
+                    throw new UserFoundException("Empresa não encontrada!");
+                });
+
+        var password = passwordEncoder.encode(companyEntity.getPassword());
+        companyEntity.setPassword(password);
+
+        return this.companyRepository.save(companyEntity);
+    }
 }

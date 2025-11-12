@@ -13,26 +13,27 @@ import org.hibernate.validator.constraints.Length;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity(name = "company")
 @Data
+@Entity(name = "company")
 public class CompanyEntity {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
-  private UUID id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
-  @Pattern(regexp = "^[A-Za-z0-9._]+$", message = "O nome de usuário só pode conter letras, números, ponto e underline, sem espaços")
-  private String username;
+    @Pattern(regexp = "^\\S+$", message = "O campo não pode conter espaços")
+    private String username;
 
-  @Email(message = "Insira um e-mail válido")
-  private String email;
+    @Email(message = "Insira um e-mail válido")
+    private String email;
 
-  @Length(min = 10, max = 100, message = "A senha deve ter entre 10 a 100 caracteres")
-  private String password;
-  private String website;
-  private String name;
-  private String description;
+    @Length(min = 10, max = 100)
+    private String password;
 
-  @CreationTimestamp
-  private LocalDateTime createdAt;
+    private String website;
+    private String name;
+    private String description;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 }

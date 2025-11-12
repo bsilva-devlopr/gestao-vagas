@@ -1,4 +1,4 @@
-package br.com.brunosilva.gestao_vagas.modules.exceptions.dtos;
+package br.com.brunosilva.gestao_vagas.exceptions.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class ErrorMessageDTO {
 
-  private String message;
-  private String field;
-
+    private String message;
+    private String field;
 }
