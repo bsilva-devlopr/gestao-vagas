@@ -8,11 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class GestaoVagasApplication {
 
-  private static final Logger logger = LoggerFactory.getLogger(GestaoVagasApplication.class);
+    private static final Logger logger = LoggerFactory.getLogger(GestaoVagasApplication.class);
 
-  public static void main(String[] args) {
-    SpringApplication.run(GestaoVagasApplication.class, args);
-    logger.info("Sistema Gestão de Vagas - Aula Daniele Leão (Rocketseat)");
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(GestaoVagasApplication.class, args);
+        logger.info("Sistema Gestão de Vagas - Aula Daniele Leão (Rocketseat)");
+    }
 
 }
