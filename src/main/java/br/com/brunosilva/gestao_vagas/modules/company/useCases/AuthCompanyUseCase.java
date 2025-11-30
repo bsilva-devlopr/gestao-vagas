@@ -32,7 +32,7 @@ public class AuthCompanyUseCase {
 
         var company = this.companyRepository.findByUsername(authCompanyDTO.getUsername()).orElseThrow(
                 () -> {
-                    throw new UserFoundException("Username or password incorrect");
+                    throw new UserFoundException();
                 });
 
         // Verificar se as senhas são iguais

@@ -1,7 +1,7 @@
 package br.com.brunosilva.gestao_vagas.exceptions;
 
 public class UserFoundException extends RuntimeException {
-    public UserFoundException(String message) {
+    public UserFoundException() {
         super(message);
     }
 }

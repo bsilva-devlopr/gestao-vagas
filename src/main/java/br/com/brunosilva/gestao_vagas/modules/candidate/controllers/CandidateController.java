@@ -2,6 +2,7 @@ package br.com.brunosilva.gestao_vagas.modules.candidate.controllers;
 
 import br.com.brunosilva.gestao_vagas.modules.candidate.dto.ProfileCandidateResponseDTO;
 import br.com.brunosilva.gestao_vagas.modules.candidate.entities.CandidateEntity;
+import br.com.brunosilva.gestao_vagas.modules.candidate.useCases.ApplyJobCandidateUseCase;
 import br.com.brunosilva.gestao_vagas.modules.candidate.useCases.CreateCandidateUseCase;
 import br.com.brunosilva.gestao_vagas.modules.candidate.useCases.ProfileCandidateUseCase;
 import br.com.brunosilva.gestao_vagas.modules.jobs.entities.JobEntity;
@@ -32,6 +33,9 @@ import java.util.UUID;
 public class CandidateController {
 
     private static Logger LOGGER = LoggerFactory.getLogger(CandidateController.class);
+
+    @Autowired
+    private ApplyJobCandidateUseCase applyJobCandidateUseCase;
 
     @Autowired
     private CreateCandidateUseCase createCandidateUseCase;
