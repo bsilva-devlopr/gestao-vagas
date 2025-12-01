@@ -4,7 +4,6 @@ import br.com.brunosilva.gestao_vagas.modules.jobs.dto.CreateJobDTO;
 import br.com.brunosilva.gestao_vagas.modules.jobs.entities.JobEntity;
 import br.com.brunosilva.gestao_vagas.modules.jobs.useCases.CreateJobUseCase;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

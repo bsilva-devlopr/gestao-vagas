@@ -1,6 +1,5 @@
 package br.com.brunosilva.gestao_vagas.modules.company.controllers;
 
-import br.com.brunosilva.gestao_vagas.exceptions.CompanyNotFoundException;
 import br.com.brunosilva.gestao_vagas.modules.company.entities.CompanyEntity;
 import br.com.brunosilva.gestao_vagas.modules.company.repositories.CompanyRepository;
 import br.com.brunosilva.gestao_vagas.modules.jobs.dto.CreateJobDTO;
@@ -22,8 +21,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.UUID;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
