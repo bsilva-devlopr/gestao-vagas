@@ -9,7 +9,7 @@ RUN mvn clean install -DskipTests
 # Imagem final (runtime)
 # -----------------------------
 FROM eclipse-temurin:21-jre-alpine
-EXPOSE 8091
+EXPOSE 8080
 
 COPY --from=build /target/gestao_vagas-0.0.1-SNAPSHOT.jar app.jar
 
