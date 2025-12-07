@@ -29,7 +29,16 @@ jobs:
     steps:
       - name: Pull image docker hub
         run: docker pull neomeca/gestao_vagas:latest
-      - name: remove container
-        run: docker rm -f gestao-vagas
-      - name: Run docker container gestao-vagas
-        run: docker run -d -p 8080:8080 -e DATABASE_URL=${{secrets.DATABASE_URL}} -e DATABASE_PASSWORD='${{secrets.DATABASE_PASSWORD}}' -e DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}} --name gestao-vagas neomeca/gestao_vagas
+
+      - name: Remove old container if exists
+        run: docker rm -f gestao-vagas || true
+
+      - name: Run new container gestao-vagas
+        run: |
+          docker run -d \
+            --name gestao-vagas \
+            -p 8080:8080 \
+            -e DATABASE_URL=${{secrets.DATABASE_URL}} \
+            -e DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}} \
+            -e DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}} \
+            neomeca/gestao_vagas:latest
